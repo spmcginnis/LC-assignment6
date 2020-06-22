@@ -7,9 +7,9 @@
         <th>Orbit Type</th>
         <th>Operational</th>
     </tr>
-    <tr *ngFor='let n of satellites'>
+    <tr *ngFor='let n of satellites' [class.warning]='n.shouldShowWarning()'>
         <td>{{n.name}}</td>
-        <td [class.warning]='n.shouldShowWarning()'>{{n.type}}</td>
+        <td >{{n.type}}</td>
         <td>{{n.launchDate}}</td>
         <td>{{n.orbitType}}</td>
         <td>{{n.operational}}</td>
