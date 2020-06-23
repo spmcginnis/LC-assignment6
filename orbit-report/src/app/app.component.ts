@@ -13,6 +13,7 @@ export class AppComponent {
 
   constructor() {
     this.sourceList = [];
+    this.displayList = [];
     let satelittesURL = 'https://handlers.education.launchcode.org/static/satellites.json';
 
     window.fetch(satelittesURL).then( function(response){
@@ -30,16 +31,16 @@ export class AppComponent {
     }.bind(this) )
   }
 
-  // search(searchTerm:string): void {
-  //   let matchingSatellites: Satellite[] = [];
-  //   searchTerm = searchTerm.toLowerCase();
-  //   for(let i=0; i<this.sourceList.length; i++) {
-  //     let name = this.sourceList[i].name.toLowerCase();
-  //     if (name.indexOf(searchTerm) >= 0) {
-  //       matchingSatellites.push(this.sourceList[i])
-  //     }
-  //   }
-  //   this.displayList = matchingSatellites;
+  search(searchTerm:string): void {
+    let matchingSatellites: Satellite[] = [];
+    searchTerm = searchTerm.toLowerCase();
+    for(let i=0; i<this.sourceList.length; i++) {
+      let name = this.sourceList[i].name.toLowerCase();
+      if (name.indexOf(searchTerm) >= 0) {
+        matchingSatellites.push(this.sourceList[i])
+      }
+    }
+    this.displayList = matchingSatellites;
 
-  // }
+  }
 }
